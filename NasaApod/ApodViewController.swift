@@ -23,9 +23,10 @@ class ApodViewController: UIViewController {
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
         
-        let url = getURL(by: selectedDate)
+        guard let url = getURL(by: selectedDate) else { return }
         fetchAPOD(from: url)
-
+      
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
             image.addGestureRecognizer(tapGesture)
             image.isUserInteractionEnabled = true
@@ -83,70 +84,62 @@ class ApodViewController: UIViewController {
 
 // MARK: - Networking
 extension ApodViewController {
-    private func fetchAPOD(from url: URL?) {
-        networkManager.fetchApod(from: url!) { [weak self] result in
-            switch result {
-            case .success(let apod):
-                print(apod)
-                self?.titleLabel.text = apod.title
-                self?.information.text = apod.explanation
-            case .failure(let error):
-                print(error)
-                self?.showAlert()
+    private func fetchAPOD(from url: URL) {
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+            guard let data else {
+                print(error?.localizedDescription ?? "No error description")
+                return
             }
-        }
+
+            let decoder = JSONDecoder()
+
+            do {
+                let apod = try decoder.decode(APOD.self, from: data)
+                print(apod)
+
+                let imageData = try Data(contentsOf: apod.url)
+                DispatchQueue.main.async {
+                    self?.titleLabel.text = apod.title
+                    self?.information.text = apod.explanation
+                    self?.activityIndicator.stopAnimating()
+                    if apod.media_type == "image" {
+                        self?.image.image = UIImage(data: imageData)
+                    } else if apod.media_type == "video" {
+                        self?.image.image = UIImage(named: "no-image-icon")
+                    }
+                }
+
+            } catch let error {
+                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self?.showAlert()
+                }
+            }
+
+        }.resume()
     }
-    
-    private func fetchImage() {
-        networkManager.fetchImage(from: APOD., completion: <#T##(Result<Data, NetworkError>) -> Void#>)
-    }
+   
 }
         
         
         
         
         
-        //guard let choseDate = selectedDate else { return }
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
-//        let dateString = dateFormatter.string(from: choseDate)
-//
-//        let apiKey = "EPmm6HHRPRWwefy3Ni18TvTe4UTzYscQ19eI9hts"
-//        let apodURL = "https://api.nasa.gov/planetary/apod?api_key=\(apiKey)&date=\(dateString)"
-//
-//        guard let url = URL(string: apodURL) else { return }
-//
-//        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-//            guard let data else {
-//                print(error?.localizedDescription ?? "No error description")
-//                return
-//            }
-//
-//            let decoder = JSONDecoder()
-//
-//            do {
-//                let apod = try decoder.decode(APOD.self, from: data)
+
+//extension ApodViewController {
+//    private func fetchAPOD(from url: URL?) {
+//        networkManager.fetchApod(from: url!) { [weak self] result in
+//            switch result {
+//            case .success(let apod):
 //                print(apod)
-//
-//                let imageURL = apod.url
-//                guard let imageData = try? Data(contentsOf: imageURL) else { return }
-//                DispatchQueue.main.async {
-//                    self?.titleLabel.text = apod.title
-//                    self?.information.text = apod.explanation
-//                    self?.activityIndicator.stopAnimating()
-//                    if apod.media_type == "image" {
-//                        self?.image.image = UIImage(data: imageData)
-//                    } else if apod.media_type == "video" {
-//                        self?.image.image = UIImage(named: "no-image-icon")
-//                    }
-//                }
-//            } catch let error {
-//                print(error.localizedDescription)
-//                DispatchQueue.main.async {
-//                    self?.showAlert()
-//                }
+//                self?.titleLabel.text = apod.title
+//                self?.information.text = apod.explanation
+//            case .failure(let error):
+//                print(error)
+//                self?.showAlert()
 //            }
-//        }.resume()
+//        }
 //    }
+//
 //}
 

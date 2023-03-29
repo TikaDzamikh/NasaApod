@@ -37,7 +37,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="LZA-GI-fup">
-                                        <rect key="frame" x="127" y="0.0" width="131" height="50"/>
+                                        <rect key="frame" x="127.33333333333334" y="0.0" width="131.00000000000003" height="50"/>
                                         <locale key="locale" localeIdentifier="en_US"/>
                                         <connections>
                                             <action selector="datePickerChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="DFH-o5-MXA"/>
@@ -46,10 +46,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoZ-kW-E1i">
-                                <rect key="frame" x="129" y="490" width="135" height="38.666666666666629"/>
+                                <rect key="frame" x="129" y="496" width="135" height="42"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="START">
-                                    <fontDescription key="titleFontDescription" name="Menlo-Regular" family="Menlo" pointSize="21"/>
+                                    <fontDescription key="titleFontDescription" name="Menlo-Regular" family="Menlo" pointSize="24"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -61,7 +61,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="29i-HB-qZj" firstAttribute="top" secondItem="lDP-sh-hII" secondAttribute="bottom" constant="20" id="B8x-cN-ZRw"/>
-                            <constraint firstItem="xoZ-kW-E1i" firstAttribute="top" secondItem="29i-HB-qZj" secondAttribute="bottom" constant="10" id="LJg-Cz-UUJ"/>
+                            <constraint firstItem="xoZ-kW-E1i" firstAttribute="top" secondItem="29i-HB-qZj" secondAttribute="bottom" constant="16" id="LJg-Cz-UUJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="29i-HB-qZj" secondAttribute="trailing" constant="67.670000000000002" id="NKC-Hf-rZc"/>
                             <constraint firstItem="lDP-sh-hII" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="NbT-he-Vmj"/>
                             <constraint firstItem="lDP-sh-hII" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="TzC-p2-YOS"/>
