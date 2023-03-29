@@ -16,6 +16,7 @@
 		DFFE65FA29D38B57004BCBAF /* ApodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE65F929D38B57004BCBAF /* ApodViewController.swift */; };
 		DFFE65FC29D38B66004BCBAF /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE65FB29D38B66004BCBAF /* ImageViewController.swift */; };
 		DFFE65FE29D38B7B004BCBAF /* APOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE65FD29D38B7B004BCBAF /* APOD.swift */; };
+		DFFE660229D3C797004BCBAF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE660129D3C797004BCBAF /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		DFFE65F929D38B57004BCBAF /* ApodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApodViewController.swift; sourceTree = "<group>"; };
 		DFFE65FB29D38B66004BCBAF /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		DFFE65FD29D38B7B004BCBAF /* APOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APOD.swift; sourceTree = "<group>"; };
+		DFFE660129D3C797004BCBAF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				DFFE65F929D38B57004BCBAF /* ApodViewController.swift */,
 				DFFE65FB29D38B66004BCBAF /* ImageViewController.swift */,
 				DFFE65FD29D38B7B004BCBAF /* APOD.swift */,
+				DFFE660129D3C797004BCBAF /* NetworkManager.swift */,
 				DF19727F29CF92D800F9223F /* Main.storyboard */,
 				DF19728229CF92D900F9223F /* Assets.xcassets */,
 				DF19728429CF92D900F9223F /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 				DF19727E29CF92D800F9223F /* ViewController.swift in Sources */,
 				DFFE65FE29D38B7B004BCBAF /* APOD.swift in Sources */,
 				DF19727A29CF92D800F9223F /* AppDelegate.swift in Sources */,
+				DFFE660229D3C797004BCBAF /* NetworkManager.swift in Sources */,
 				DFFE65FC29D38B66004BCBAF /* ImageViewController.swift in Sources */,
 				DFFE65FA29D38B57004BCBAF /* ApodViewController.swift in Sources */,
 				DF19727C29CF92D800F9223F /* SceneDelegate.swift in Sources */,
